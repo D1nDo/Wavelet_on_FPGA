@@ -156,7 +156,7 @@ The simulation allows an easy comparison between:
 - noisy input signal
 - reconstructed denoised signal
 
-as showed in the following figure.
+as showed in the following figure for the two levels denoising block.
 
 <p align="center">
   <img src="Noisesuppression.png" alt="Wavelet denoising example" width="1000">
