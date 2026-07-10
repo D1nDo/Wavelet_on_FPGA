@@ -112,7 +112,7 @@ denoising and compression applications.
 
 ---
 
-# Block Designs :electric_plug:
+# Block Designs :wrench:
 
 The repository includes three Vivado block designs showing different use cases
 of the implemented wavelet cores.
