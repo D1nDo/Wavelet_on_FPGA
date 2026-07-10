@@ -161,7 +161,7 @@ It can be used as a starting point to test different threshold values and study
 the effect of wavelet filtering.
 
 <p align="center">
-  <img src="noise%20suppression.png" alt="Wavelet denoising example" width="700">
+  <img src="noise_suppression.png" alt="Wavelet denoising example" width="700">
 </p>
 
 ---
