@@ -242,21 +242,6 @@ issues.
 
 ---
 
-# Future Improvements :rocket:
-
-Some possible future developments:
-
-- adaptive threshold selection
-- BayesShrink and SURE denoising methods
-- additional wavelet families
-- AXI4-Stream packaged IP versions
-- dynamic wavelet level selection
-- software-controlled threshold configuration
-
-Contributions and suggestions are welcome!
-
----
-
 # References :books:
 
 The theoretical background of this project is based on:
