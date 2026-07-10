@@ -99,11 +99,7 @@ and compression.
 
 
 This simple operation removes small wavelet coefficients, which are often
-associated with:
-
-- noise components
-- insignificant signal details
-
+associated with noise components.
 
 By controlling the threshold value, the same hardware block can be used for both
 denoising and compression applications.
