@@ -192,18 +192,8 @@ different delays introduced by the wavelet branches.
 
 The project can be generated automatically using the provided Vivado TCL script.
 
-The repository intentionally contains only the essential source files:
-
-- Verilog RTL modules
-- Vivado block designs
-- project generation script
-
-
-No generated Vivado project files are included, keeping the repository small,
-portable and easier to maintain.
-
 After cloning the repository, run:
-vivado -mode batch -source build_project.tcl
+ "vivado -mode batch -source build_project.tcl"
 
 
 The script automatically:
