@@ -210,15 +210,6 @@ After project generation, the standard FPGA flow can be executed:
 - implementation
 - bitstream generation
 
-
-The repository has been developed and tested using:
-
-- Xilinx Vivado 2020.1
-
-
-Different Vivado versions may require small changes due to IP compatibility
-issues.
-
 ---
 
 # References :books:
