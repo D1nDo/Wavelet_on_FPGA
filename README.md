@@ -181,14 +181,10 @@ Each configuration performs:
 - Db4 reconstruction
 
 
-These architectures are designed for streaming applications, where samples are
-continuously processed without storing complete signal frames.
+These architectures are designed for streaming applications.
 
 FIFO memories are included inside the Mallat trees to compensate for the
 different delays introduced by the wavelet branches.
-
-This guarantees synchronization between approximation and detail paths during
-signal reconstruction.
 
 ---
 
