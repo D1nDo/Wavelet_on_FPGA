@@ -156,9 +156,7 @@ The simulation allows an easy comparison between:
 - noisy input signal
 - reconstructed denoised signal
 
-
-It can be used as a starting point to test different threshold values and study
-the effect of wavelet filtering.
+as showed in the following figure.
 
 <p align="center">
   <img src="Noisesuppression.png" alt="Wavelet denoising example" width="1000">
