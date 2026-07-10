@@ -134,6 +134,10 @@ coefficients.
 This block design shows how wavelet-based compression can be implemented in
 hardware for real-time FPGA applications.
 
+<p align="center">
+  <img src="Images/Vivadoimage.png" alt="Wavelet denoising example" width="1000">
+</p>
+
 ---
 
 ## Simulation
@@ -159,7 +163,7 @@ The simulation allows an easy comparison between:
 as showed in the following figure for the two levels denoising block.
 
 <p align="center">
-  <img src="Noisesuppression.png" alt="Wavelet denoising example" width="1000">
+  <img src="Images/Noisesuppression.png" alt="Wavelet denoising example" width="1000">
 </p>
 
 ---
