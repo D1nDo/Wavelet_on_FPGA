@@ -64,11 +64,9 @@ Wavelet Transform.
 
 The block performs:
 
-- low-pass filtering
-- high-pass filtering
-- downsampling
-- approximation coefficient generation
-- detail coefficient generation
+- low-pass filtering H(z)
+- high-pass filtering G(z)
+- downsampling %2
 
 
 The architecture is based on fixed-point arithmetic optimized for FPGA
