@@ -219,8 +219,7 @@ The theoretical background of this project is based on:
 
 S. Mallat,
 
-"A Theory for Multiresolution Signal Decomposition:
-The Wavelet Representation",
+"A Theory for Multiresolution Signal Decomposition: The Wavelet Representation",
 
 IEEE Transactions on Pattern Analysis and Machine Intelligence,
 
