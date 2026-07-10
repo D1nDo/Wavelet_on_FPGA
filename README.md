@@ -25,16 +25,11 @@ can be integrated into custom DSP systems.
 
 # Motivation
 
-Wavelet transforms are widely used in digital signal processing because they
-provide a simultaneous representation of signals in both time and frequency
-domains.
+Wavelet transforms are widely used in digital signal processing.
 
 Although several software implementations exist, publicly available RTL
 implementations of complete wavelet processing pipelines for FPGA platforms are
 limited.
-
-There are currently no widely adopted open-source IP cores implementing complete
-DWT and IDWT processing chains suitable for FPGA acceleration.
 
 This repository aims to provide reusable FPGA building blocks for researchers
 and engineers developing custom hardware-based wavelet systems.
@@ -44,7 +39,6 @@ The main goals are:
 - provide synthesizable RTL wavelet blocks
 - implement complete DWT and IDWT architectures
 - provide reusable Mallat decomposition trees
-- enable FPGA-based denoising and compression applications
 - offer a starting point for custom wavelet IP development
 
 ---
