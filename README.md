@@ -51,7 +51,6 @@ The main objectives are:
 - provide synthesizable RTL wavelet processing blocks
 - implement complete DWT and IDWT pipelines
 - provide reusable Mallat decomposition trees
-- create a foundation for custom FPGA wavelet IP development
 
 ---
 
