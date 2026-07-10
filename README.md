@@ -1,13 +1,15 @@
-# FPGA-Based Discrete Wavelet Transform (DWT) and Inverse DWT (IDWT) using Daubechies-4 Wavelets
+# FPGA Wavelet Processing: DWT and IDWT using Daubechies-4 Wavelets
 
 ## Overview
 
+Welcome to an FPGA implementation of wavelet processing! :wave:
+
 This repository contains a complete RTL implementation of a one-dimensional
 Discrete Wavelet Transform (DWT) and Inverse Discrete Wavelet Transform (IDWT)
-architecture targeting FPGA platforms.
+architecture for FPGA platforms.
 
-The project implements hardware accelerators for Daubechies-4 (Db4) wavelets,
-providing reusable building blocks for real-time wavelet-based processing
+The project implements hardware accelerators based on the Daubechies-4 (Db4)
+wavelet, providing reusable building blocks for real-time signal processing
 applications such as:
 
 - signal denoising
@@ -15,47 +17,58 @@ applications such as:
 - multiresolution signal analysis
 - feature extraction
 
-The complete design is developed in Verilog RTL using Xilinx Vivado.
 
-The objective of this repository is not to provide a final application-specific
-product, but rather a collection of modular FPGA wavelet processing blocks that
-can be integrated into custom DSP systems.
+The complete design is written in Verilog RTL and developed using Xilinx Vivado.
+
+The main goal of this repository is to provide a collection of reusable FPGA
+wavelet processing blocks that can be integrated into custom DSP and embedded
+systems.
+
+This is not intended to be a final application-specific IP core. Instead, the
+idea is to provide a flexible starting point for anyone interested in exploring
+wavelet algorithms on FPGA hardware.
 
 ---
 
-# Motivation
+# Why this project? :bulb:
 
-Wavelet transforms are widely used in digital signal processing.
+Wavelet transforms are powerful tools for analysing signals at different
+resolutions. They are widely used in digital signal processing, especially for
+applications where both time and frequency information are important.
 
-Although several software implementations exist, publicly available RTL
-implementations of complete wavelet processing pipelines for FPGA platforms are
-limited.
+Software implementations of wavelet transforms are widely available, but
+finding complete and reusable FPGA RTL implementations is much more challenging.
 
-This repository aims to provide reusable FPGA building blocks for researchers
-and engineers developing custom hardware-based wavelet systems.
+This repository aims to provide a practical hardware starting point for:
 
-The main goals are:
+- researchers working on FPGA-based signal processing
+- students exploring hardware DSP
+- engineers developing custom wavelet accelerators
 
-- provide synthesizable RTL wavelet blocks
-- implement complete DWT and IDWT architectures
+
+The main objectives are:
+
+- provide synthesizable RTL wavelet processing blocks
+- implement complete DWT and IDWT pipelines
 - provide reusable Mallat decomposition trees
-- offer a starting point for custom wavelet IP development
+- create a foundation for custom FPGA wavelet IP development
 
 ---
 
-# Implemented Hardware Blocks
+# Implemented Hardware Blocks :gear:
 
-## 1. Db4 Wavelet Decomposition Block
+## Db4 Wavelet Decomposition Block
 
-The Db4 decomposition block implements the analysis stage of the DWT.
+The Db4 decomposition block implements the analysis stage of the Discrete
+Wavelet Transform.
 
 The block performs:
 
 - low-pass filtering
 - high-pass filtering
 - downsampling
-- generation of approximation coefficients
-- generation of detail coefficients
+- approximation coefficient generation
+- detail coefficient generation
 
 
 The architecture is based on fixed-point arithmetic optimized for FPGA
@@ -63,9 +76,10 @@ implementation.
 
 ---
 
-## 2. Db4 Wavelet Reconstruction Block
+## Db4 Wavelet Reconstruction Block
 
-The reconstruction block implements the synthesis stage required by the IDWT.
+The reconstruction block implements the synthesis stage required by the Inverse
+Discrete Wavelet Transform.
 
 The block performs:
 
@@ -74,153 +88,198 @@ The block performs:
 - signal reconstruction
 
 
-When coefficients are not modified, the architecture provides perfect
-reconstruction of the input signal.
+When wavelet coefficients are not modified, the architecture provides perfect
+reconstruction of the original signal.
 
 ---
 
-## 3. Hard Threshold Block
+## Hard Threshold Block
 
-A fixed hard-thresholding block is implemented for wavelet denoising and
-compression.
-
-The implemented operation is:
+The repository includes a fixed hard-thresholding block for wavelet denoising
+and compression.
 
 
 
-The threshold value is manually selected by the user.
+This simple operation removes small wavelet coefficients, which are often
+associated with:
 
-This operation removes low-energy wavelet coefficients, which are usually
-associated with noise or insignificant signal components.
+- noise components
+- insignificant signal details
+
+
+By controlling the threshold value, the same hardware block can be used for both
+denoising and compression applications.
 
 ---
 
-# Block Designs
+# Block Designs :electric_plug:
+
+The repository includes three Vivado block designs showing different use cases
+of the implemented wavelet cores.
+
+---
 
 ## Db4_loop
 
-The `Db4_loop` block design implements a complete FPGA-based wavelet
-compression and reconstruction pipeline using DMA data transfer.
+The `Db4_loop` block design demonstrates a complete FPGA wavelet processing
+pipeline using DMA data transfer.
 
-This design is intended as a hardware demonstration of the complete DWT and IDWT
-processing chain. Input samples are transferred to the FPGA through an AXI DMA
-interface as 16-bit data. The samples are then processed by the Db4 wavelet
-decomposition block, which separates the signal into approximation and detail
-coefficients following the Mallat algorithm.
+Input samples are transferred to the FPGA through an AXI DMA interface as
+16-bit samples.
 
-After the decomposition stage, the detail coefficients are processed by a fixed
-hard threshold block. Coefficients below the selected threshold are removed,
-reducing the amount of information associated with high-frequency components.
+The processing chain includes:
 
-The processed coefficients are then reconstructed using the Db4 inverse wavelet
-transform block.
+1. Db4 wavelet decomposition using the Mallat algorithm
+2. Hard thresholding of detail coefficients
+3. Db4 inverse wavelet reconstruction
+4. DMA transfer of processed data back to the host
 
-The output data are transferred back through the DMA receive channel. The output
-format is a 32-bit packed representation containing the processed detail
-coefficients and approximation coefficients.
 
-This architecture demonstrates how wavelet-based compression can be implemented
-in hardware for real-time signal processing applications.
+The output data are packed into 32-bit words containing the processed wavelet
+coefficients.
+
+This block design shows how wavelet-based compression can be implemented in
+hardware for real-time FPGA applications.
 
 ---
 
 ## Simulation
 
-The `simulation` block design provides a complete FPGA simulation environment
-for testing the wavelet denoising capability of the implemented architecture.
+The `simulation` block design provides a simple environment to test wavelet
+denoising.
 
-The input signal is generated internally using a 32-bit DDS signal generator.
-A sinusoidal waveform is generated and corrupted with high-frequency noise in
-order to evaluate the performance of the wavelet denoising pipeline.
+A sinusoidal waveform is generated using a 32-bit DDS module and corrupted with
+high-frequency noise.
 
-The noisy signal is processed through the Db4 wavelet decomposition block. The
-detail coefficients are then filtered using a fixed hard threshold operation,
-removing the high-frequency components associated with noise.
+The noisy signal is then processed through:
 
-Finally, the signal is reconstructed using the Db4 inverse wavelet transform.
+- Db4 decomposition
+- hard threshold filtering
+- Db4 reconstruction
 
-The simulation allows direct comparison between the noisy input signal and the
-reconstructed denoised signal, providing a simple demonstration of the effect
-of wavelet thresholding on noise reduction.
 
-This block design can be used as a reference environment to evaluate the
-behavior of the implemented wavelet processing blocks before integration into
-larger FPGA systems.
+The simulation allows an easy comparison between:
+
+- noisy input signal
+- reconstructed denoised signal
+
+
+It can be used as a starting point to test different threshold values and study
+the effect of wavelet filtering.
 
 ---
 
 ## all_levels_blocks
 
-The `all_levels_blocks` block design contains reusable multilevel wavelet
-processing architectures based on the Mallat decomposition tree.
+The `all_levels_blocks` design contains reusable multilevel wavelet processing
+architectures based on Mallat decomposition trees.
 
-Three different configurations are implemented, supporting one-level,
-two-level and three-level wavelet decomposition and reconstruction.
+Three different configurations are implemented:
 
-Each configuration performs a complete wavelet denoising and compression
-operation by applying Db4 decomposition, hard thresholding of detail
-coefficients and Db4 reconstruction.
+- 1-level wavelet processing
+- 2-level wavelet processing
+- 3-level wavelet processing
 
-These architectures are designed for streaming applications, where input
-samples are continuously processed without requiring complete frame storage.
 
-Inside the Mallat trees, FIFO memories are included to compensate for the
-different latencies introduced by the wavelet filter branches. Since the
-approximation and detail paths have different processing delays, the FIFO blocks
-are used to synchronize the coefficients before the reconstruction stage.
+Each configuration performs:
 
-The resulting architectures provide real-time wavelet processing blocks that
-can be directly integrated into FPGA-based signal acquisition and processing
-systems.
+- Db4 decomposition
+- detail coefficient thresholding
+- Db4 reconstruction
 
-# Build Instructions
 
-The project can be automatically generated using the provided Vivado TCL script.
+These architectures are designed for streaming applications, where samples are
+continuously processed without storing complete signal frames.
 
-The repository contains only the required RTL sources, including the Verilog
-hardware descriptions, the Vivado block designs and the project generation
-script. No pre-generated Vivado project files are included in order to keep the
-repository lightweight and portable.
+FIFO memories are included inside the Mallat trees to compensate for the
+different delays introduced by the wavelet branches.
 
-After cloning the repository, the user can create the Vivado project by
-executing the `build_project.tcl` script in batch mode or by sourcing the script
-directly from the Vivado Tcl console.
+This guarantees synchronization between approximation and detail paths during
+signal reconstruction.
 
-The script automatically creates the project structure, imports all Verilog RTL
-sources contained in the `src/hdl` folder, loads the block design files contained
-in the `src/bd` folder and configures the project for synthesis and
-implementation.
+---
 
-Once the project generation is completed, the generated Vivado project can be
-opened and the desired block design can be selected according to the intended
-application.
+# Build Instructions :hammer_and_wrench:
 
-The user can then execute the standard FPGA design flow:
+The project can be generated automatically using the provided Vivado TCL script.
+
+The repository intentionally contains only the essential source files:
+
+- Verilog RTL modules
+- Vivado block designs
+- project generation script
+
+
+No generated Vivado project files are included, keeping the repository small,
+portable and easier to maintain.
+
+After cloning the repository, run:
+vivado -mode batch -source build_project.tcl
+
+
+The script automatically:
+
+- creates the Vivado project
+- imports all RTL sources from `src/hdl`
+- loads block designs from `src/bd`
+- configures the project for synthesis and implementation
+
+
+After project generation, the standard FPGA flow can be executed:
 
 - synthesis
 - implementation
 - bitstream generation
 
-The generated bitstream can be programmed on the target FPGA platform for
-hardware evaluation.
 
-The repository was developed and tested using Xilinx Vivado 2020.1. Different
-Vivado versions may require minor modifications to the project configuration
-or IP compatibility settings.
+The repository has been developed and tested using:
 
-# Citation
+- Xilinx Vivado 2020.1
 
-If this repository is used in academic work, please cite:
+
+Different Vivado versions may require small changes due to IP compatibility
+issues.
+
+---
+
+# Future Improvements :rocket:
+
+Some possible future developments:
+
+- adaptive threshold selection
+- BayesShrink and SURE denoising methods
+- additional wavelet families
+- AXI4-Stream packaged IP versions
+- dynamic wavelet level selection
+- software-controlled threshold configuration
+
+Contributions and suggestions are welcome!
+
+---
+
+# References :books:
+
+The theoretical background of this project is based on:
 
 
 S. Mallat,
+
 "A Theory for Multiresolution Signal Decomposition:
 The Wavelet Representation",
+
 IEEE Transactions on Pattern Analysis and Machine Intelligence,
+
 1989.
 
 
+
 I. Daubechies,
+
 "Ten Lectures on Wavelets",
+
 SIAM,
+
 1992.
+
+
+---
