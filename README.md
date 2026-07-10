@@ -192,6 +192,10 @@ These architectures are designed for streaming applications.
 FIFO memories are included inside the Mallat trees to compensate for the
 different delays introduced by the wavelet branches.
 
+<p align="center">
+  <img src="Images/Vivadoimage.png" alt="Wavelet denoising example" width="1000">
+</p>
+
 ---
 
 # Build Instructions :hammer_and_wrench:
