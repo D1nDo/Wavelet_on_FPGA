@@ -18,8 +18,8 @@
         "ACLKEN_CONV_MODE": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "HAS_TREADY": [ { "value": "1", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "HAS_TSTRB": [ { "value": "0", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "HAS_TKEEP": [ { "value": "1", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "HAS_TLAST": [ { "value": "1", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "HAS_TKEEP": [ { "value": "0", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "HAS_TLAST": [ { "value": "0", "value_src": "propagated", "value_permission": "bd_and_user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "SYNCHRONIZATION_STAGES": [ { "value": "3", "resolve_type": "user", "format": "long", "enabled": false, "usage": "all" } ],
         "HAS_WR_DATA_COUNT": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "HAS_RD_DATA_COUNT": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
@@ -40,7 +40,7 @@
         "C_AXIS_TID_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_AXIS_TDEST_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_AXIS_TUSER_WIDTH": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "C_AXIS_SIGNAL_SET": [ { "value": "0b00000000000000000000000000011011", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
+        "C_AXIS_SIGNAL_SET": [ { "value": "0b00000000000000000000000000000011", "resolve_type": "generated", "format": "bitString", "usage": "all" } ],
         "C_FIFO_DEPTH": [ { "value": "1024", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_FIFO_MODE": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
         "C_IS_ACLK_ASYNC": [ { "value": "0", "resolve_type": "generated", "format": "long", "usage": "all" } ],
@@ -83,13 +83,9 @@
         "s_axis_tvalid": [ { "direction": "in", "driver_value": "0x0" } ],
         "s_axis_tready": [ { "direction": "out" } ],
         "s_axis_tdata": [ { "direction": "in", "size_left": "31", "size_right": "0", "driver_value": "0x00000000" } ],
-        "s_axis_tkeep": [ { "direction": "in", "size_left": "3", "size_right": "0", "driver_value": "0xF" } ],
-        "s_axis_tlast": [ { "direction": "in", "driver_value": "0x1" } ],
         "m_axis_tvalid": [ { "direction": "out" } ],
         "m_axis_tready": [ { "direction": "in", "driver_value": "0x1" } ],
-        "m_axis_tdata": [ { "direction": "out", "size_left": "31", "size_right": "0" } ],
-        "m_axis_tkeep": [ { "direction": "out", "size_left": "3", "size_right": "0" } ],
-        "m_axis_tlast": [ { "direction": "out" } ]
+        "m_axis_tdata": [ { "direction": "out", "size_left": "31", "size_right": "0" } ]
       },
       "interfaces": {
         "S_AXIS": {
@@ -103,8 +99,8 @@
             "TUSER_WIDTH": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TREADY": [ { "value": "1", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TSTRB": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "HAS_TKEEP": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "HAS_TLAST": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "HAS_TKEEP": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "HAS_TLAST": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_HZ": [ { "value": "50000000", "value_src": "user_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
             "CLK_DOMAIN": [ { "value": "Db4_loop_processing_system7_0_0_FCLK_CLK0", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
@@ -113,8 +109,6 @@
           },
           "port_maps": {
             "TDATA": [ { "physical_name": "s_axis_tdata" } ],
-            "TKEEP": [ { "physical_name": "s_axis_tkeep" } ],
-            "TLAST": [ { "physical_name": "s_axis_tlast" } ],
             "TREADY": [ { "physical_name": "s_axis_tready" } ],
             "TVALID": [ { "physical_name": "s_axis_tvalid" } ]
           }
@@ -130,8 +124,8 @@
             "TUSER_WIDTH": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TREADY": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "HAS_TSTRB": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "HAS_TKEEP": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
-            "HAS_TLAST": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "HAS_TKEEP": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "HAS_TLAST": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "FREQ_HZ": [ { "value": "50000000", "value_src": "user_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
             "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
             "CLK_DOMAIN": [ { "value": "Db4_loop_processing_system7_0_0_FCLK_CLK0", "value_src": "default_prop", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
@@ -140,8 +134,6 @@
           },
           "port_maps": {
             "TDATA": [ { "physical_name": "m_axis_tdata" } ],
-            "TKEEP": [ { "physical_name": "m_axis_tkeep" } ],
-            "TLAST": [ { "physical_name": "m_axis_tlast" } ],
             "TREADY": [ { "physical_name": "m_axis_tready" } ],
             "TVALID": [ { "physical_name": "m_axis_tvalid" } ]
           }
@@ -181,5 +173,5 @@
       }
     }
   },
-  "checksum": "aa0dd243"
+  "checksum": "d6648ebe"
 }

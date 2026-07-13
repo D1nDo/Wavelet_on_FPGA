@@ -9,12 +9,12 @@
     "parameters": {
       "component_parameters": {
         "DATA_WIDTH": [ { "value": "32", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
-        "DELAY": [ { "value": "74", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+        "DELAY": [ { "value": "292", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
         "Component_Name": [ { "value": "simulation_Axis_data_and_valid_0_0", "resolve_type": "user", "usage": "all" } ]
       },
       "model_parameters": {
         "DATA_WIDTH": [ { "value": "32", "resolve_type": "generated", "format": "long", "usage": "all" } ],
-        "DELAY": [ { "value": "74", "resolve_type": "generated", "format": "long", "usage": "all" } ]
+        "DELAY": [ { "value": "292", "resolve_type": "generated", "format": "long", "usage": "all" } ]
       },
       "project_parameters": {
         "ARCHITECTURE": [ { "value": "zynq", "resolve_type": "generated", "usage": "all" } ],
@@ -135,5 +135,5 @@
       }
     }
   },
-  "checksum": "392fbc0e"
+  "checksum": "5917b040"
 }

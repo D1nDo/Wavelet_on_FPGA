@@ -2,7 +2,7 @@
   "schema": "xilinx.com:schema:json_instance:1.0",
   "ip_inst": {
     "xci_name": "all_levels_blocks_Axis_Hard_threshold_0_3",
-    "cell_name": "Two_levels/Axis_Hard_threshold_0",
+    "cell_name": "Axis_Hard_threshold_0",
     "component_reference": "xilinx.com:module_ref:Axis_Hard_threshold_fixed:1.0",
     "ip_revision": "1",
     "gen_directory": "../../../../../../Db4_wavelet.gen/sources_1/bd/all_levels_blocks/ip/all_levels_blocks_Axis_Hard_threshold_0_3",
@@ -133,5 +133,5 @@
       }
     }
   },
-  "checksum": "48a2af33"
+  "checksum": "1a4ba2c2"
 }

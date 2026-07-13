@@ -118,7 +118,7 @@ The `Db4_loop` block design demonstrates a complete FPGA wavelet processing
 pipeline using DMA data transfer.
 
 Input samples are transferred to the FPGA through an AXI DMA interface as
-16-bit samples.
+32-bit samples.
 
 The processing chain includes:
 
@@ -127,9 +127,6 @@ The processing chain includes:
 3. Db4 inverse wavelet reconstruction
 4. DMA transfer of processed data back to the host
 
-
-The output data are packed into 32-bit words containing the processed wavelet
-coefficients.
 
 This block design shows how wavelet-based compression can be implemented in
 hardware for real-time FPGA applications.

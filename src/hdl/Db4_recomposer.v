@@ -105,10 +105,10 @@ module Axis_Db4_reconstruction #(
     
 	always @(posedge clk or negedge reset_n) begin
 		if (!reset_n) begin
-		  upsamp_cnt = 2**(LEVEL-1);
+		  upsamp_cnt <= 2**(LEVEL-1);
 		end else begin	
             if(can_accept_data) begin
-              upsamp_cnt = 0;
+              upsamp_cnt <= 0;
             end else begin
               upsamp_cnt <= upsamp_cnt +1;
             end 

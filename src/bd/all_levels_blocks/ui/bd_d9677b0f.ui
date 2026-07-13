@@ -1,0 +1,54 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.398957",
+   "Default View_TopLeft":"-98,-446",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
+#  -string -flagsOSRD
+preplace port s_axis -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
+preplace port m_axis_3 -pg 1 -lvl 11 -x 2860 -y 360 -defaultsOSRD
+preplace port port-id_clock -pg 1 -lvl 0 -x 0 -y 450 -defaultsOSRD
+preplace port port-id_reset_n -pg 1 -lvl 0 -x 0 -y 470 -defaultsOSRD
+preplace inst Axis_Db4_decomposer_0 -pg 1 -lvl 1 -x 160 -y 450 -defaultsOSRD
+preplace inst Axis_data_and_valid_0 -pg 1 -lvl 9 -x 2410 -y 480 -defaultsOSRD
+preplace inst Axis_Db4_decomposer_1 -pg 1 -lvl 2 -x 440 -y 140 -defaultsOSRD
+preplace inst Axis_Db4_decomposer_2 -pg 1 -lvl 3 -x 710 -y 230 -defaultsOSRD
+preplace inst Axis_Db4_decomposer_3 -pg 1 -lvl 4 -x 990 -y 240 -defaultsOSRD
+preplace inst Axis_Db4_reconstruct_3 -pg 1 -lvl 7 -x 1850 -y 80 -defaultsOSRD
+preplace inst Axis_data_and_valid_2 -pg 1 -lvl 7 -x 1850 -y 360 -defaultsOSRD
+preplace inst Axis_Db4_reconstruct_4 -pg 1 -lvl 8 -x 2140 -y 110 -defaultsOSRD
+preplace inst Axis_data_and_valid_3 -pg 1 -lvl 8 -x 2140 -y 280 -defaultsOSRD
+preplace inst Axis_Db4_reconstruct_5 -pg 1 -lvl 9 -x 2410 -y 290 -defaultsOSRD
+preplace inst Axis_Db4_reconstruct_6 -pg 1 -lvl 10 -x 2690 -y 370 -defaultsOSRD
+preplace inst Axis_Db4_decomposer_4 -pg 1 -lvl 5 -x 1270 -y 230 -defaultsOSRD
+preplace inst Axis_Db4_reconstruct_7 -pg 1 -lvl 6 -x 1560 -y 250 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 10 -x 2690 -y 500 -defaultsOSRD
+preplace inst Axis_data_and_valid_4 -pg 1 -lvl 6 -x 1560 -y 70 -defaultsOSRD
+preplace netloc sim_clk_gen_0_clk 1 0 10 20 360 290 230 580 310 860 320 1130 320 1420 350 1710 440 2000 440 2280 380 NJ
+preplace netloc sim_clk_gen_0_sync_rst 1 0 10 30 370 310 250 570 320 850 330 1140 330 1430 150 1720 450 2010 200 2270 400 NJ
+preplace netloc xlconstant_0_dout 1 10 1 2840 380n
+preplace netloc Axis_Db4_decomposer_0_m_axis_cA 1 1 1 300 120n
+preplace netloc Axis_Db4_decomposer_0_m_axis_cD 1 1 8 NJ 460 NJ 460 NJ 460 NJ 460 NJ 460 NJ 460 NJ 460 N
+preplace netloc Axis_Db4_decomposer_1_m_axis_cA 1 2 1 580 130n
+preplace netloc Axis_Db4_decomposer_1_m_axis_cD 1 2 6 NJ 150 NJ 150 NJ 150 1410J 160 1700J 170 1990
+preplace netloc Axis_Db4_decomposer_2_m_axis_cA 1 3 1 N 220
+preplace netloc Axis_Db4_decomposer_2_m_axis_cD 1 3 4 840 340 NJ 340 NJ 340 NJ
+preplace netloc Axis_Db4_decomposer_3_m_axis_cA 1 4 1 1120 210n
+preplace netloc Axis_Db4_decomposer_3_m_axis_cD 1 4 2 1120J 310 1400
+preplace netloc Axis_Db4_decomposer_4_m_axis_cA 1 5 1 N 220
+preplace netloc Axis_Db4_decomposer_4_m_axis_cD 1 5 1 N 240
+preplace netloc Axis_Db4_reconstruct_3_m_axis 1 7 1 N 80
+preplace netloc Axis_Db4_reconstruct_4_m_axis 1 8 1 2280 110n
+preplace netloc Axis_Db4_reconstruct_5_m_axis 1 9 1 2540 290n
+preplace netloc Axis_Db4_reconstruct_7_m_axis 1 6 1 1690 50n
+preplace netloc Axis_adder_0_m_axis 1 0 1 NJ 430
+preplace netloc Axis_data_and_valid_0_m_axis 1 9 1 2540 360n
+preplace netloc Axis_data_and_valid_2_m_axis 1 7 1 1980 100n
+preplace netloc Axis_data_and_valid_3_m_axis 1 8 1 N 280
+preplace netloc Axis_data_and_valid_4_m_axis 1 6 1 N 70
+preplace netloc Conn1 1 10 1 N 360
+levelinfo -pg 1 0 160 440 710 990 1270 1560 1850 2140 2410 2690 2860
+pagesize -pg 1 -db -bbox -sgen -100 0 2970 550
+"
+}
+
