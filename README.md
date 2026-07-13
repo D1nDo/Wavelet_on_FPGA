@@ -163,7 +163,7 @@ The simulation allows an easy comparison between:
 as showed in the following figure for the two levels denoising block.
 
 <p align="center">
-<img src="Images/Noisesuppression.png" alt="Wavelet denoising example" width="1000">
+<img src="Images/Noise_suppression.png" alt="Wavelet denoising example" width="1000">
 </p>
 
 ---
