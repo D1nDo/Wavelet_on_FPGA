@@ -178,8 +178,9 @@ Three different configurations are implemented:
 - 1-level wavelet processing
 - 2-level wavelet processing
 - 3-level wavelet processing
-
-
+- 4-level wavelet processing
+- 5-level wavelet processing
+  
 Each configuration performs:
 
 - Db4 decomposition
@@ -193,11 +194,6 @@ FIFO memories are included inside the Mallat trees to compensate for the
 different delays introduced by the wavelet branches.
 
 The Vivado architecture for the Mallat tree at three level decomposition is reported below.
-
-<p align="center">
-  <img src="Images/Vivadoimage.png" alt="Wavelet denoising example" width="1000">
-  <img src="Images/threelevelblock.png" alt="Wavelet denoising example" width="1000">
-</p>
 
 ---
 
